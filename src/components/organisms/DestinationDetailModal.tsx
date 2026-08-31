@@ -1,15 +1,13 @@
-﻿"use client";
-
+"use client";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { MapPin, X } from "lucide-react";
 import type { Destination } from "@/lib/heritage-sites";
-
+import { basePath } from "@/lib/site-config";
 export function DestinationDetailModal({ destination, onClose }: { destination: Destination; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
     setMounted(true);
     closeRef.current?.focus();
@@ -23,9 +21,7 @@ export function DestinationDetailModal({ destination, onClose }: { destination: 
       document.body.style.overflow = "";
     };
   }, [onClose]);
-
   if (!mounted) return null;
-
   return createPortal(
     <div
       role="presentation"
@@ -42,7 +38,7 @@ export function DestinationDetailModal({ destination, onClose }: { destination: 
       >
         <div className="relative aspect-[16/8] min-h-52 overflow-hidden rounded-t-3xl">
           <Image
-            src={destination.image}
+            src={`${basePath}${destination.image}`}
             alt={destination.name}
             fill
             sizes="(min-width: 640px) 768px, 100vw"
