@@ -1,9 +1,8 @@
-﻿"use client";
-
+"use client";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import { heritageSites } from "@/lib/heritage-sites";
-
+import { basePath } from "@/lib/site-config";
 export function DestinationHighlights() {
   return (
     <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -14,7 +13,7 @@ export function DestinationHighlights() {
         >
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
-              src={destination.image}
+              src={`${basePath}${destination.image}`}
               alt={destination.name}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
