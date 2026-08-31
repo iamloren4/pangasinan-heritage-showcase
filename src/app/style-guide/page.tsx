@@ -9,6 +9,7 @@ import { NavigationItem } from "@/components/molecules/NavigationItem";
 import { HeritageGrid } from "@/components/organisms/HeritageGrid";
 import { HeaderNavigation } from "@/components/organisms/HeaderNavigation";
 import { heritageSites } from "@/lib/heritage-sites";
+import { basePath } from "@/lib/site-config";
 
 function Section({ level, title, children }: { level: string; title: string; children: React.ReactNode }) {
   return (
@@ -72,7 +73,7 @@ export default function StyleGuide() {
 
       <Section level="Atom" title="Image">
         <div className="max-w-xs">
-          <Image src="/heritage/hundred-islands.svg" alt="Hundred Islands, Alaminos" aspect="4/3" />
+          <Image src={`${basePath}/heritage/hundred-islands.svg`} alt="Hundred Islands, Alaminos" aspect="4/3" />
         </div>
       </Section>
 
