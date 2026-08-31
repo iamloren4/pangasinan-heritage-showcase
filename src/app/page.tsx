@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowDown, ArrowRight, Church, Compass, Landmark, MapPin, Palmtree, Sparkles, Waves } from "lucide-react";
 import { HeaderNavigation } from "@/components/organisms/HeaderNavigation";
 import { DestinationHighlights } from "@/components/organisms/DestinationHighlights";
-
+import { basePath } from "@/lib/site-config";
 
 const reasons = [
   { icon: Landmark, title: "Rich Heritage", text: "Stories of faith, trade, and community live on in every town." },
