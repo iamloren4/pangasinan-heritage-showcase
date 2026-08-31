@@ -1,14 +1,8 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
-  output: "export",
-
-  basePath: "/pangasinan-heritage-showcase",
-
-  assetPrefix: "/pangasinan-heritage-showcase/",
-
-  trailingSlash: true,
-
+  output: 'export',
+  basePath: '/pangasinan-heritage-showcase',
+  assetPrefix: '/pangasinan-heritage-showcase/',
   images: {
     unoptimized: true,
   },
