@@ -1,11 +1,10 @@
 // components/organisms/HeritageGrid.tsx
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Heading, Text } from "@/components/atoms/Typography";
 import { MapPin } from "lucide-react";
-
+import { basePath } from "@/lib/site-config";
 type HeritageSite = {
   slug: string;
   name: string;
@@ -13,15 +12,12 @@ type HeritageSite = {
   description: string;
   image: string; // e.g. "/heritage/hundred-islands.jpg"
 };
-
 function useInView<T extends HTMLElement>() {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -31,17 +27,13 @@ function useInView<T extends HTMLElement>() {
       },
       { threshold: 0.15 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
-
   return { ref, inView };
 }
-
 function HeritageCard({ site, index }: { site: HeritageSite; index: number }) {
   const { ref, inView } = useInView<HTMLDivElement>();
-
   return (
     <div
       ref={ref}
@@ -52,7 +44,7 @@ function HeritageCard({ site, index }: { site: HeritageSite; index: number }) {
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
-          src={site.image}
+          src={`${basePath}${site.image}`}
           alt={site.name}
           fill
           className="object-cover"
@@ -62,7 +54,6 @@ function HeritageCard({ site, index }: { site: HeritageSite; index: number }) {
           <MapPin className="size-4" aria-hidden="true" />
         </span>
       </div>
-
       <div className="flex flex-1 flex-col p-5">
         <Heading level={3} className="text-lg text-sea">
           {site.name}
@@ -72,7 +63,6 @@ function HeritageCard({ site, index }: { site: HeritageSite; index: number }) {
     </div>
   );
 }
-
 export function HeritageGrid({ sites }: { sites: HeritageSite[] }) {
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
