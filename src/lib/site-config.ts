@@ -1,1 +1,5 @@
-export const basePath = process.env.NODE_ENV === "production" ? "/pangasinan-heritage-showcase" : "";
+const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export const basePath = configuredBasePath
+  ? `/${configuredBasePath.replace(/^\/+|\/+$/g, "")}`
+  : "";

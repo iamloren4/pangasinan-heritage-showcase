@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH
+  ? `/${process.env.NEXT_PUBLIC_BASE_PATH.replace(/^\/+|\/+$/g, '')}`
+  : '';
+
 const nextConfig = {
   output: 'export',
-  basePath: '/pangasinan-heritage-showcase',
+  basePath,
   images: {
     unoptimized: true,
   },
