@@ -1,9 +1,10 @@
-﻿"use client";
+"use client";
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { MapPin, Search, X } from "lucide-react";
 import { heritageSites, type Destination } from "@/lib/heritage-sites";
+import { basePath } from "@/lib/site-config";
 
 type Filter = "all" | "natural" | "cultural" | "other";
 const filters: { id: Filter; label: string }[] = [
@@ -87,7 +88,7 @@ export function HeritageGallery() {
             >
               <div className={`relative ${index % 3 === 0 ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
                 <Image
-                  src={site.image}
+                  src={`${basePath}${site.image}`}
                   alt={site.name}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
