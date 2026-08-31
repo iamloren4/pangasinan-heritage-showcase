@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Backpack, Bus, CalendarDays, Heart } from "lucide-react";
 import { basePath } from "@/lib/site-config";
 type Tip = { title: string; body: string; image: string; icon: string; };
-
+export function TipCard({ tip, index }: { tip: Tip; index: number }) {
   const ref = useRef<HTMLLIElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => { const el = ref.current; if (!el) return; const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } }, { threshold: 0.2 }); observer.observe(el); return () => observer.disconnect(); }, []);
