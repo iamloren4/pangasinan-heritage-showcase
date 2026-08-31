@@ -2,7 +2,6 @@
 const nextConfig = {
   output: 'export',
   basePath: '/pangasinan-heritage-showcase',
-  assetPrefix: '/pangasinan-heritage-showcase/',
   images: {
     unoptimized: true,
   },
