@@ -1,4 +1,8 @@
-# Pangasinan Heritage Digital Showcase
+Project Title: Pangasinan Heritage Showcase
+Student Name: Loren Pontawe
+Selected Framework: React
+
+https://iamloren4.github.io/pangasinan-heritage-showcase/
 
 React (Next.js 14, App Router) + Tailwind CSS component library and demo
 site for the Pangasinan Provincial Tourism Office, built with Brad Frost's
